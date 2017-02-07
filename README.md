@@ -1,5 +1,6 @@
 # news_spider
-
+This is a simple scrapy based spider that you can use to
+crawl latest news of Jiangsu province from 163 website.
 
 ### How to install scrapy
 ***
