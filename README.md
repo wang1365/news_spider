@@ -25,3 +25,15 @@ You need to install **pywin32** package according to you Windows and Python vers
 * Go to Python scripts path, e.g. "C:\Python27\Scripts".   
    Execute command:  
    `python.exe pywin32_postinstall.py -install`  
+ 
+ ### How to deploy spider to shub(Scraping Cloud)
+ * Install shub  
+  `pip install shub`  
+ * Login shub
+  `shub login`  
+  API Key: 0e1e5f22532c41e594e71891b069132c  
+* Deploy spider  
+  `shub depoly`  
+* Schedule spider  
+  `shub schedule Netease`  
+  
