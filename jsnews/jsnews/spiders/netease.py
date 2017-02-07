@@ -7,10 +7,10 @@ from scrapy.http.response.text import TextResponse
 class NeteaseSpider(Spider):
     name = "Netease"
     start_urls = [
-        r'http://bendi.news.163.com/jiangsu/special/04248H8U/wxxxl.js', # Wuxi
-        r'http://bendi.news.163.com/jiangsu/special/04248H8U/njxxl.js', # Nanjing
-        r'http://bendi.news.163.com/jiangsu/special/04248H8U/szxxl.js', # Suzhou
-        r'http://bendi.news.163.com/jiangsu/special/04248H8U/czxxl.js', # Changzhou
+        r'http://bendi.news.163.com/jiangsu/special/04248H8U/wxxxl.js',  # Wuxi
+        r'http://bendi.news.163.com/jiangsu/special/04248H8U/njxxl.js',  # Nanjing
+        r'http://bendi.news.163.com/jiangsu/special/04248H8U/szxxl.js',  # Suzhou
+        r'http://bendi.news.163.com/jiangsu/special/04248H8U/czxxl.js',  # Changzhou
         r'http://bendi.news.163.com/jiangsu/special/04248H8U/ntxxl.js'  # Nantong
     ]
     res_template = {
@@ -29,10 +29,9 @@ class NeteaseSpider(Spider):
             body = response.body.strip()[hi:ti]
             news_set = loads(body, encoding=response.encoding)
             for news in news_set:
-                print "city:", response.request.url[-8:-6]
-                print "title: ", news["title"].encode(response.encoding)
-                print "docurl: ", news["docurl"].encode(response.encoding)
-                print "time: ", news["time"].encode(response.encoding)
-                print ''
+                self.logger.info("city:%s", response.request.url[-8:-6])
+                self.logger.info("title: %s", news["title"].encode(response.encoding))
+                self.logger.info("docurl: %s", news["docurl"].encode(response.encoding))
+                self.logger.info("time: %s\n", news["time"].encode(response.encoding))
         else:
-            print 'incorrect response,', response.status
+            self.error('incorrect response, %d', response.status)
