@@ -12,3 +12,9 @@ class JsnewsItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass
+
+class NeteaseItem(scrapy.Item):
+    city = scrapy.Field()
+    title = scrapy.Field()
+    docurl = scrapy.Field()
+    time = scrapy.Field()

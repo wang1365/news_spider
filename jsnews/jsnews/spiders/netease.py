@@ -33,5 +33,11 @@ class NeteaseSpider(Spider):
                 self.logger.info("title: %s", news["title"].encode(response.encoding))
                 self.logger.info("docurl: %s", news["docurl"].encode(response.encoding))
                 self.logger.info("time: %s\n", news["time"].encode(response.encoding))
+                yield {
+                    "city": response.request.url[-8:-6],
+                    "title": news["title"],
+                    "docurl": news["docurl"],
+                    "time": news["time"]
+                }
         else:
             self.error('incorrect response, %d', response.status)
