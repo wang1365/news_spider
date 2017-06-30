@@ -54,3 +54,8 @@ class JsnewsSpiderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+class MyHttpProxyMiddleware(object):
+    http_proxy = 'proxy.pal.sap.corp:8080'
+    https_proxy = 'proxy.pal.sap.corp:8080'
